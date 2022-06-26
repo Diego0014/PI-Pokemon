@@ -55,6 +55,22 @@ export const getPokemonByName = (name) => {
   };
 };
 
+export const searchPokemon = (name) => {
+  return (dispatch) => {
+    axios
+      .get(`http://localhost:3001/api/pokemons/?name=${name}`)
+      .then((response) => {
+        dispatch({
+          type: GET_POKEMON_BY_NAME,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+};
+
 export const getAllTypes = () => {
   return (dispatch) => {
     axios

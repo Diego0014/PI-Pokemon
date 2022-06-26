@@ -9,6 +9,7 @@ import {
 const initialState = {
   pokemons: [],
   filteredPokemons: [],
+  pokemonDetail: [],
   types: [],
 };
 
@@ -23,34 +24,14 @@ export default function reducer(state = initialState, action) {
     case GET_POKEMON_BY_ID:
       return {
         ...state,
-        pokemons: state.pokemons.map((pokemon) => {
-          if (pokemon.id === action.payload.id) {
-            return action.payload;
-          }
-          return pokemon;
-        }),
-        filteredPokemons: state.filteredPokemons.map((pokemon) => {
-          if (pokemon.id === action.payload.id) {
-            return action.payload;
-          }
-          return pokemon;
-        }),
+        pokemonDetail: action.payload,
+        filteredPokemons: action.payload,
       };
     case GET_POKEMON_BY_NAME:
       return {
         ...state,
-        pokemons: state.pokemons.map((pokemon) => {
-          if (pokemon.name === action.payload.name) {
-            return action.payload;
-          }
-          return pokemon;
-        }),
-        filteredPokemons: state.filteredPokemons.map((pokemon) => {
-          if (pokemon.name === action.payload.name) {
-            return action.payload;
-          }
-          return pokemon;
-        }),
+        filteredPokemons: action.payload,
+        pokemonDetail: action.payload,
       };
     case GET_TYPES:
       return {

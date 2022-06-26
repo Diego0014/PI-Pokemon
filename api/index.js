@@ -19,7 +19,7 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
-const { getTypes, getAllPokemons } = require("./src/routes/controllers/index.js");
+const { getTypes} = require("./src/routes/controllers/index.js");
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {

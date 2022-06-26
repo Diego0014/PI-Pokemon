@@ -7,6 +7,9 @@ const {
   searchPokemonById,
 } = require("./controllers");
 
+const get = getAllPokemons();
+
+
 router.get("/", async (req, res, next) => {
   try {
     const { name } = req.query;
@@ -14,7 +17,7 @@ router.get("/", async (req, res, next) => {
       const pokemon = await searchPokemonByName(name);
       res.status(200).json(pokemon);
     } else {
-      const pokemons = await getAllPokemons();
+      const pokemons = await get;
       res.status(200).json(pokemons);
     }
   } catch (e) {

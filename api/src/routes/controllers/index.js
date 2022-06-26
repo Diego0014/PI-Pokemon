@@ -147,6 +147,7 @@ const searchPokemonById = async (id) => {
   }
 };
 
+
 module.exports = {
   getTypes,
   getAllPokemons,
